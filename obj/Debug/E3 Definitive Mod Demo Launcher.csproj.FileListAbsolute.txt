@@ -1,0 +1,48 @@
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\x64\7z.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\x86\7z.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\CmdInit.cmd
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmu.exe
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmu64.exe
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmuC.exe
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmuC64.exe
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmuCD.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmuCD64.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmuHk.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\ConEmuHk64.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu\GitShowBranch.cmd
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\E3 Definitive Mod Demo Launcher.exe.config
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\E3 Definitive Mod Demo Launcher.exe
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\E3 Definitive Mod Demo Launcher.pdb
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ConEmu.WinForms.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\SevenZipExtractor.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\SharpCompress.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\SharpCompress.pdb
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\System.Buffers.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\System.Memory.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\bin\Debug\ZstdSharp.dll
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.csproj.AssemblyReference.cache
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.csproj.SuggestedBindingRedirects.cache
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.exe.config
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\DyingLight2Downgrader.g.cs
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\MainWindow.g.cs
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\Properties\SteamLogin.g.cs
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\SteamGuardWindow.g.cs
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\App.g.cs
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher_Content.g.cs
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher_MarkupCompile.cache
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher_MarkupCompile.lref
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\DyingLight2Downgrader.baml
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\MainWindow.baml
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\Properties\SteamLogin.baml
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\SteamGuardWindow.baml
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.g.resources
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3_Definitive_Mod_Demo_Launcher.Properties.Resources.resources
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.csproj.GenerateResource.cache
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.csproj.CoreCompileInputs.cache
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Defin.BD090E56.Up2Date
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.exe
+C:\Users\Danieliscool\source\repos\E3 Definitive Mod Demo Launcher\E3 Definitive Mod Demo Launcher\obj\Debug\E3 Definitive Mod Demo Launcher.pdb

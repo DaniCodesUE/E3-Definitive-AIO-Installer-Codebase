@@ -1,0 +1,30 @@
+﻿<Window x:Class="E3_Definitive_Mod_Demo_Launcher.SteamGuardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:E3_Definitive_Mod_Demo_Launcher"
+        mc:Ignorable="d"
+        Title="SteamGuardWindow" Height="200" Width="400" ResizeMode="NoResize" WindowStyle="None"
+        MouseDown="Window_MouseDown">
+    <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="29" Margin="0,-3,0,0" VerticalAlignment="Top" Width="400" Fill="Black"/>
+        <Label Content="Steam Guard Support" HorizontalAlignment="Left" Margin="133,2,0,0" VerticalAlignment="Top" Width="129" Height="30" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="DIN Pro Bold">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.115"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Enter Provided Code Here:" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.211,0.156" FontFamily="DIN Pro Medium" Height="24" Width="170" Foreground="Black" Background="{x:Null}"/>
+        <PasswordBox x:Name="SteamGuardCodeTextBox" HorizontalAlignment="Center" Margin="0,109,0,0" VerticalAlignment="Top" Width="372" BorderBrush="Black" Height="17" Password=""/>
+        <Button x:Name="FinishedButton" Content="Done" HorizontalAlignment="Left" Margin="292,158,0,0" VerticalAlignment="Top" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontFamily="DIN Pro Bold" Height="33" Width="93" Click="Button_Click_1"/>
+        <Image x:Name="CloseButton" Margin="371,5,13,181" Source="/Vector.png" Stretch="Fill"/>
+        <Button x:Name="CloseButt" Content="Button" HorizontalAlignment="Left" Margin="366,2,0,0" VerticalAlignment="Top" Width="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="CloseButt_Click" />
+        <Image x:Name="MinimizeButton" Margin="344,12,42,187" Source="/FOLD.png" Stretch="Fill"/>
+        <Button x:Name="Minimize" Content="Button" HorizontalAlignment="Left" Margin="339,5,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Width="26" Height="15" Click="Minimize_Click" />
+    </Grid>
+</Window>

@@ -1,0 +1,45 @@
+Dying Light 2 – E3 Definitive Mod AIO Installer
+
+:: CREATED FOR THE E3 DEFINITIVE TEAM ::
+None of the in-game mod work was done by me; all credit goes to the talented E3 Def. Team.
+
+:: REQUIREMENTS ::
+• Steam version of Dying Light 2 (Epic Games version is not supported)
+• Sufficient storage space (see below for details)
+
+:: FEATURES ::
+• Automatic Game Downgrade – Reverts the game to the correct version.
+• Mod & Patch Installation – Installs the latest E3 Definitive Mod with all necessary patches.
+• Integrated Audio Fix – Ensures proper sound functionality.
+• Optimized Download System – Faster file retrieval via an alternative hosting method.
+
+:: USAGE INSTRUCTIONS ::
+
+Enter Steam credentials for authentication.
+
+Select your Dying Light 2 installation folder.
+
+Click “Start Installation” – the process is fully automated.
+
+:: STEAM GUARD INSTRUCTIONS ::
+• If using Steam Guard via Email:
+
+Select "Steam Email" from the combo box.
+
+Enter the code from your email when prompted.
+
+Do not recheck the Steam Guard checkbox on the next launch.
+• If using Steam Guard via App:
+
+You’ll need to enter a new code each time a depot download is required (unavoidable due to SteamCMD limitations).
+
+:: KNOWN ISSUES ::
+• First Launch Version: This installer cannot currently patch an already installed game. A patching feature is in development and will be added in a future update.
+• Storage Requirement: Ensure at least 150GB of free space, as the depot temporarily stores files in steamapps. SteamCMD rerouting attempts have been made, but some restrictions remain.
+
+:: SUPPORT & FEEDBACK ::
+• Report any issues or errors to Daniel on Discord: danielbruh.
+• If needed, a tutorial may be recorded based on user feedback.
+
+This tool simplifies the setup process, eliminating manual downgrading and mod installation steps. Use at your discretion, as this modifies game files.
+

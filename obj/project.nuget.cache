@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "AylQif5o4qg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Danieliscool\\source\\repos\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\conemu.control.winforms\\1.21.9.5\\conemu.control.winforms.1.21.9.5.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\conemu.core\\23.7.24\\conemu.core.23.7.24.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\conemu.liberated\\150111.0.0\\conemu.liberated.150111.0.0.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\sevenzipextractor\\1.0.19\\sevenzipextractor.1.0.19.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\sharpcompress\\0.39.0\\sharpcompress.0.39.0.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\system.buffers\\4.6.0\\system.buffers.4.6.0.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\zstdsharp.port\\0.8.4\\zstdsharp.port.0.8.4.nupkg.sha512"
+  ],
+  "logs": []
+}

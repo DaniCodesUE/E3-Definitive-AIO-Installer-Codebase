@@ -1,0 +1,1562 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "ConEmu.Control.WinForms/1.21.9.5": {
+        "type": "package",
+        "dependencies": {
+          "ConEmu.Core": "21.9.5"
+        },
+        "compile": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ConEmu.Core/23.7.24": {
+        "type": "package",
+        "build": {
+          "Build/ConEmu.Core.Targets": {}
+        }
+      },
+      "ConEmu.Liberated/150111.0.0": {
+        "type": "package"
+      },
+      "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "SevenZipExtractor/1.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "build": {
+          "build/SevenZipExtractor.targets": {}
+        }
+      },
+      "SharpCompress/0.39.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.6.0",
+          "ZstdSharp.Port": "0.8.4"
+        },
+        "compile": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "System.Buffers/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ZstdSharp.Port/0.8.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net462/ZstdSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ZstdSharp.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win": {
+      "ConEmu.Control.WinForms/1.21.9.5": {
+        "type": "package",
+        "dependencies": {
+          "ConEmu.Core": "21.9.5"
+        },
+        "compile": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ConEmu.Core/23.7.24": {
+        "type": "package",
+        "build": {
+          "Build/ConEmu.Core.Targets": {}
+        }
+      },
+      "ConEmu.Liberated/150111.0.0": {
+        "type": "package"
+      },
+      "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "SevenZipExtractor/1.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "build": {
+          "build/SevenZipExtractor.targets": {}
+        }
+      },
+      "SharpCompress/0.39.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.6.0",
+          "ZstdSharp.Port": "0.8.4"
+        },
+        "compile": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "System.Buffers/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ZstdSharp.Port/0.8.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net462/ZstdSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ZstdSharp.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-arm64": {
+      "ConEmu.Control.WinForms/1.21.9.5": {
+        "type": "package",
+        "dependencies": {
+          "ConEmu.Core": "21.9.5"
+        },
+        "compile": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ConEmu.Core/23.7.24": {
+        "type": "package",
+        "build": {
+          "Build/ConEmu.Core.Targets": {}
+        }
+      },
+      "ConEmu.Liberated/150111.0.0": {
+        "type": "package"
+      },
+      "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "SevenZipExtractor/1.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "build": {
+          "build/SevenZipExtractor.targets": {}
+        }
+      },
+      "SharpCompress/0.39.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.6.0",
+          "ZstdSharp.Port": "0.8.4"
+        },
+        "compile": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "System.Buffers/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ZstdSharp.Port/0.8.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net462/ZstdSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ZstdSharp.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x64": {
+      "ConEmu.Control.WinForms/1.21.9.5": {
+        "type": "package",
+        "dependencies": {
+          "ConEmu.Core": "21.9.5"
+        },
+        "compile": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ConEmu.Core/23.7.24": {
+        "type": "package",
+        "build": {
+          "Build/ConEmu.Core.Targets": {}
+        }
+      },
+      "ConEmu.Liberated/150111.0.0": {
+        "type": "package"
+      },
+      "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "SevenZipExtractor/1.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "build": {
+          "build/SevenZipExtractor.targets": {}
+        }
+      },
+      "SharpCompress/0.39.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.6.0",
+          "ZstdSharp.Port": "0.8.4"
+        },
+        "compile": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "System.Buffers/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ZstdSharp.Port/0.8.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net462/ZstdSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ZstdSharp.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x86": {
+      "ConEmu.Control.WinForms/1.21.9.5": {
+        "type": "package",
+        "dependencies": {
+          "ConEmu.Core": "21.9.5"
+        },
+        "compile": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40/ConEmu.WinForms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ConEmu.Core/23.7.24": {
+        "type": "package",
+        "build": {
+          "Build/ConEmu.Core.Targets": {}
+        }
+      },
+      "ConEmu.Liberated/150111.0.0": {
+        "type": "package"
+      },
+      "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.0.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "SevenZipExtractor/1.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SevenZipExtractor.dll": {}
+        },
+        "build": {
+          "build/SevenZipExtractor.targets": {}
+        }
+      },
+      "SharpCompress/0.39.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.6.0",
+          "ZstdSharp.Port": "0.8.4"
+        },
+        "compile": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net48/SharpCompress.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "System.Buffers/4.6.0": {
+        "type": "package",
+        "compile": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net462/System.Buffers.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net462/_._": {}
+        }
+      },
+      "System.Memory/4.5.5": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.1",
+          "System.Numerics.Vectors": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "System",
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.5.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Numerics",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/System.Numerics.Vectors.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Runtime.CompilerServices.Unsafe.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.3"
+        },
+        "frameworkAssemblies": [
+          "mscorlib"
+        ],
+        "compile": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net461/System.Threading.Tasks.Extensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ZstdSharp.Port/0.8.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net462/ZstdSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net462/ZstdSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConEmu.Control.WinForms/1.21.9.5": {
+      "sha512": "7nog5wAb9J717ZCy2/3RSNjEsI8ZZEU/R3ucBVpJtzll+U0AFXaAjQccSak/mWL/+jtr4vtSIS4W97CKEaZZCA==",
+      "type": "package",
+      "path": "conemu.control.winforms/1.21.9.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "conemu.control.winforms.1.21.9.5.nupkg.sha512",
+        "conemu.control.winforms.nuspec",
+        "images/icon.png",
+        "lib/net40/ConEmu.WinForms.dll",
+        "lib/net40/ConEmu.WinForms.xml",
+        "license/license.txt"
+      ]
+    },
+    "ConEmu.Core/23.7.24": {
+      "sha512": "QlDxN+7gF21pC/t/mtYSRK28mMW52bV0ixklNWX3HzeCGmJwmFZ2iEuMT8NdGX8LoorspvjvUjkH+evz1VnZRA==",
+      "type": "package",
+      "path": "conemu.core/23.7.24",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Build/ConEmu.Core.Targets",
+        "Tools/ConEmu/CmdInit.cmd",
+        "Tools/ConEmu/ConEmu.exe",
+        "Tools/ConEmu/ConEmu64.exe",
+        "Tools/ConEmu/ConEmuC.exe",
+        "Tools/ConEmu/ConEmuC64.exe",
+        "Tools/ConEmu/ConEmuCD.dll",
+        "Tools/ConEmu/ConEmuCD64.dll",
+        "Tools/ConEmu/ConEmuHk.dll",
+        "Tools/ConEmu/ConEmuHk64.dll",
+        "Tools/ConEmu/GitShowBranch.cmd",
+        "conemu.core.23.7.24.nupkg.sha512",
+        "conemu.core.nuspec",
+        "images/icon.png",
+        "license/license.txt"
+      ]
+    },
+    "ConEmu.Liberated/150111.0.0": {
+      "sha512": "WHJGxehEiHWmJSejOCYio5ZgpI4B/kUpaFdjkhCUwnXzWbJy11gL1ytSIXWWlItJoLr7AOTJvCE8QtEeFeO/pw==",
+      "type": "package",
+      "path": "conemu.liberated/150111.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "conemu.liberated.150111.0.0.nupkg.sha512",
+        "conemu.liberated.nuspec",
+        "content/ConEmu.exe",
+        "content/ConEmu/About-ConEmu.txt",
+        "content/ConEmu/Addons/AnsiColors16.ans",
+        "content/ConEmu/Addons/AnsiColors16t.ans",
+        "content/ConEmu/Addons/AnsiColors24bit.ps1",
+        "content/ConEmu/Addons/AnsiColors256.ans",
+        "content/ConEmu/Addons/Blues16.bmp",
+        "content/ConEmu/Addons/CallPlugin.txt",
+        "content/ConEmu/Addons/ChocolateyAbout.cmd",
+        "content/ConEmu/Addons/ConEmu_Inside.reg",
+        "content/ConEmu/Addons/ConEmu_Inside_Delete.reg",
+        "content/ConEmu/Addons/Disable_ConIme.reg",
+        "content/ConEmu/Addons/FarHere.dat",
+        "content/ConEmu/Addons/FarHereInstall.cmd",
+        "content/ConEmu/Addons/FarHereUninstall.cmd",
+        "content/ConEmu/Addons/Greys16.bmp",
+        "content/ConEmu/Addons/Lines16.bmp",
+        "content/ConEmu/Addons/Lines16a.bmp",
+        "content/ConEmu/Addons/Lines18.bmp",
+        "content/ConEmu/Addons/Lines18a.bmp",
+        "content/ConEmu/Addons/git_sample.cmd",
+        "content/ConEmu/Attach.cmd",
+        "content/ConEmu/ClsEx.cmd",
+        "content/ConEmu/CmdInit.cmd",
+        "content/ConEmu/Cmd_Autorun.cmd",
+        "content/ConEmu/ColorPrompt.cmd",
+        "content/ConEmu/Command Processor Off.reg",
+        "content/ConEmu/Command Processor.reg",
+        "content/ConEmu/ConEmuC.exe",
+        "content/ConEmu/ConEmuC64.exe",
+        "content/ConEmu/ConEmuCD.dll",
+        "content/ConEmu/ConEmuCD64.dll",
+        "content/ConEmu/ConEmuHk.dll",
+        "content/ConEmu/ConEmuHk64.dll",
+        "content/ConEmu/ConEmu_MinGW.xml",
+        "content/ConEmu/ConEmu_Sample.xml",
+        "content/ConEmu/ConEmu_Tilde.xml",
+        "content/ConEmu/DosBox/DosBox_Sample.conf",
+        "content/ConEmu/ExtendedConsole.dll",
+        "content/ConEmu/ExtendedConsole64.dll",
+        "content/ConEmu/FAQ-ConEmu.txt",
+        "content/ConEmu/Far1_reg/AltEnter_Exec.reg",
+        "content/ConEmu/Far1_reg/AltEnter_Props.reg",
+        "content/ConEmu/Far1_reg/CtrlAltD.reg",
+        "content/ConEmu/Far1_reg/CtrlO.reg",
+        "content/ConEmu/Far1_reg/CtrlO_View.reg",
+        "content/ConEmu/Far1_reg/CtrlShiftT.reg",
+        "content/ConEmu/Far1_reg/FAR_AutoAttach.reg",
+        "content/ConEmu/Far1_reg/FontSize.reg",
+        "content/ConEmu/Far1_reg/ShiftEnter.reg",
+        "content/ConEmu/Far1_reg/TabList.reg",
+        "content/ConEmu/Far1_reg/Thumbnails.reg",
+        "content/ConEmu/Far1_reg/Thumbnails_KeyBar.reg",
+        "content/ConEmu/Far2_fml/ConEmu.Editor.fml",
+        "content/ConEmu/Far2_fml/ConEmu.FontSize.fml",
+        "content/ConEmu/Far2_fml/ConEmu.GuiMacro.fml",
+        "content/ConEmu/Far2_fml/ConEmu.ShiftEnter.fml",
+        "content/ConEmu/Far2_fml/ConEmu.TabList.fml",
+        "content/ConEmu/Far2_fml/ConEmu.fml",
+        "content/ConEmu/Far2_reg/AltEnter_Exec.reg",
+        "content/ConEmu/Far2_reg/AltEnter_Props.reg",
+        "content/ConEmu/Far2_reg/CtrlAltD.reg",
+        "content/ConEmu/Far2_reg/CtrlO.reg",
+        "content/ConEmu/Far2_reg/CtrlO_View.reg",
+        "content/ConEmu/Far2_reg/CtrlShiftT.reg",
+        "content/ConEmu/Far2_reg/FAR_AutoAttach.reg",
+        "content/ConEmu/Far2_reg/FarWhite.reg",
+        "content/ConEmu/Far2_reg/FontSize.reg",
+        "content/ConEmu/Far2_reg/ShiftEnter.reg",
+        "content/ConEmu/Far2_reg/Thumbnails.reg",
+        "content/ConEmu/Far2_reg/Thumbnails_KeyBar.reg",
+        "content/ConEmu/Far2_reg/UCharMap.reg",
+        "content/ConEmu/Far3_fml/ConEmu.CtrlO.fml",
+        "content/ConEmu/Far3_fml/ConEmu.CtrlShiftT.fml",
+        "content/ConEmu/Far3_fml/ConEmu.Editor.fml",
+        "content/ConEmu/Far3_fml/ConEmu.FontSize.fml",
+        "content/ConEmu/Far3_fml/ConEmu.ShiftEnter.fml",
+        "content/ConEmu/Far3_fml/ConEmu.TabList.fml",
+        "content/ConEmu/Far3_fml/ConEmu.Thumbnails.fml",
+        "content/ConEmu/Far3_fml/Editor.MsRClick.fml",
+        "content/ConEmu/Far3_fml/Thumbnails_KeyBar.farconfig",
+        "content/ConEmu/Far3_lua/ConEmu.CtrlO.lua",
+        "content/ConEmu/Far3_lua/ConEmu.CtrlShiftT.lua",
+        "content/ConEmu/Far3_lua/ConEmu.Editor.lua",
+        "content/ConEmu/Far3_lua/ConEmu.FontSize.lua",
+        "content/ConEmu/Far3_lua/ConEmu.PanelsList.lua",
+        "content/ConEmu/Far3_lua/ConEmu.ShiftEnter.lua",
+        "content/ConEmu/Far3_lua/ConEmu.TabList.lua",
+        "content/ConEmu/Far3_lua/ConEmu.Thumbnails.lua",
+        "content/ConEmu/Far3_lua/Descript.ion",
+        "content/ConEmu/Far3_lua/Editor.MsRClick.lua",
+        "content/ConEmu/Far3_lua/Thumbnails_KeyBar.farconfig",
+        "content/ConEmu/GitShowBranch.cmd",
+        "content/ConEmu/IsConEmu.cmd",
+        "content/ConEmu/License.txt",
+        "content/ConEmu/Portable.txt",
+        "content/ConEmu/RenameTab.cmd",
+        "content/ConEmu/SetConTitle.cmd",
+        "content/ConEmu/SetEscChar.cmd",
+        "content/ConEmu/SetProgress.cmd",
+        "content/ConEmu/Settings-ConEmu.reg",
+        "content/ConEmu/TypeBuildErrors.cmd",
+        "content/ConEmu/WhatsNew-ConEmu.txt",
+        "content/ConEmu/cecho.cmd",
+        "content/ConEmu/clink/Readme.txt",
+        "content/ConEmu/csudo.cmd",
+        "content/ConEmu64.exe",
+        "content/plugins/ConEmu/Background/Background.xml",
+        "content/plugins/ConEmu/Background/ConEmuBg.dll",
+        "content/plugins/ConEmu/Background/ConEmuBg.map",
+        "content/plugins/ConEmu/Background/ConEmuBg.x64.dll",
+        "content/plugins/ConEmu/Background/ConEmuBg.x64.map",
+        "content/plugins/ConEmu/Background/ConEmuBg_en.lng",
+        "content/plugins/ConEmu/Background/ConEmuBg_ru.lng",
+        "content/plugins/ConEmu/Background/img/archive.png",
+        "content/plugins/ConEmu/Background/img/caution.png",
+        "content/plugins/ConEmu/Background/img/database.png",
+        "content/plugins/ConEmu/Background/img/downloads.png",
+        "content/plugins/ConEmu/Background/img/drive_cdrom.png",
+        "content/plugins/ConEmu/Background/img/drive_cloud.png",
+        "content/plugins/ConEmu/Background/img/drive_fixed.png",
+        "content/plugins/ConEmu/Background/img/drive_network.png",
+        "content/plugins/ConEmu/Background/img/drive_ramdisk.png",
+        "content/plugins/ConEmu/Background/img/drive_removable.png",
+        "content/plugins/ConEmu/Background/img/dropbox.png",
+        "content/plugins/ConEmu/Background/img/globe.png",
+        "content/plugins/ConEmu/Background/img/music.png",
+        "content/plugins/ConEmu/Background/img/network.png",
+        "content/plugins/ConEmu/Background/img/plugin.png",
+        "content/plugins/ConEmu/Background/img/recycle.png",
+        "content/plugins/ConEmu/Background/img/science.png",
+        "content/plugins/ConEmu/Background/img/trash.png",
+        "content/plugins/ConEmu/ConEmu.dll",
+        "content/plugins/ConEmu/ConEmu.map",
+        "content/plugins/ConEmu/ConEmu.x64.dll",
+        "content/plugins/ConEmu/ConEmu.x64.map",
+        "content/plugins/ConEmu/ConEmuPlugin_en.lng",
+        "content/plugins/ConEmu/ConEmuPlugin_ru.lng",
+        "content/plugins/ConEmu/Lines/ConEmuLn.dll",
+        "content/plugins/ConEmu/Lines/ConEmuLn.map",
+        "content/plugins/ConEmu/Lines/ConEmuLn.x64.dll",
+        "content/plugins/ConEmu/Lines/ConEmuLn.x64.map",
+        "content/plugins/ConEmu/Lines/ConEmuLn_en.lng",
+        "content/plugins/ConEmu/Lines/ConEmuLn_ru.lng",
+        "content/plugins/ConEmu/Readme.txt",
+        "content/plugins/ConEmu/Thumbs/ConEmuTh.dll",
+        "content/plugins/ConEmu/Thumbs/ConEmuTh.map",
+        "content/plugins/ConEmu/Thumbs/ConEmuTh.x64.dll",
+        "content/plugins/ConEmu/Thumbs/ConEmuTh.x64.map",
+        "content/plugins/ConEmu/Thumbs/ConEmuTh_en.lng",
+        "content/plugins/ConEmu/Thumbs/ConEmuTh_ru.lng",
+        "content/plugins/ConEmu/Thumbs/gdi+.t32",
+        "content/plugins/ConEmu/Thumbs/gdi+.t32.map",
+        "content/plugins/ConEmu/Thumbs/gdi+.t64",
+        "content/plugins/ConEmu/Thumbs/gdi+.t64.map",
+        "content/plugins/ConEmu/Thumbs/ico.t32",
+        "content/plugins/ConEmu/Thumbs/ico.t32.map",
+        "content/plugins/ConEmu/Thumbs/ico.t64",
+        "content/plugins/ConEmu/Thumbs/ico.t64.map",
+        "content/plugins/ConEmu/Thumbs/pe.t32",
+        "content/plugins/ConEmu/Thumbs/pe.t32.map",
+        "content/plugins/ConEmu/Thumbs/pe.t64",
+        "content/plugins/ConEmu/Thumbs/pe.t64.map"
+      ]
+    },
+    "Microsoft.Bcl.AsyncInterfaces/5.0.0": {
+      "sha512": "W8DPQjkMScOMTtJbPwmPyj9c3zYSFGawDW3jwlBOOsnY+EzZFLgNQ/UMkK35JmkNOVPdCyPr2Tw7Vv9N+KA3ZQ==",
+      "type": "package",
+      "path": "microsoft.bcl.asyncinterfaces/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
+        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
+        "microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
+        "microsoft.bcl.asyncinterfaces.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.CSharp/4.0.1": {
+      "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
+      "type": "package",
+      "path": "microsoft.csharp/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.0.1.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "SevenZipExtractor/1.0.19": {
+      "sha512": "tU9H3d8M6zx0u/0II/xecBKVjzX3BMB1v0NTSliSwlO+ryof7BIaiY0pMHd2eRqCWvyleFSERtQm4zQVG6fxAQ==",
+      "type": "package",
+      "path": "sevenzipextractor/1.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/SevenZipExtractor.targets",
+        "build/x64/7z.dll",
+        "build/x86/7z.dll",
+        "lib/net45/SevenZipExtractor.dll",
+        "lib/netstandard2.0/SevenZipExtractor.dll",
+        "sevenzipextractor.1.0.19.nupkg.sha512",
+        "sevenzipextractor.nuspec"
+      ]
+    },
+    "SharpCompress/0.39.0": {
+      "sha512": "0esqIUDlg68Z7+Weuge4QzEvNtawUO4obTJFL7xuf4DBHMxVRr+wbNgiX9arMrj3kGXQSvLe0zbZG3oxpkwJOA==",
+      "type": "package",
+      "path": "sharpcompress/0.39.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net48/SharpCompress.dll",
+        "lib/net48/SharpCompress.pdb",
+        "lib/net481/SharpCompress.dll",
+        "lib/net481/SharpCompress.pdb",
+        "lib/net6.0/SharpCompress.dll",
+        "lib/net6.0/SharpCompress.pdb",
+        "lib/net8.0/SharpCompress.dll",
+        "lib/net8.0/SharpCompress.pdb",
+        "lib/netstandard2.0/SharpCompress.dll",
+        "lib/netstandard2.0/SharpCompress.pdb",
+        "sharpcompress.0.39.0.nupkg.sha512",
+        "sharpcompress.nuspec"
+      ]
+    },
+    "System.Buffers/4.6.0": {
+      "sha512": "lN6tZi7Q46zFzAbRYXTIvfXcyvQQgxnY7Xm6C6xQ9784dEL1amjM6S6Iw4ZpsvesAKnRVsM4scrDQaDqSClkjA==",
+      "type": "package",
+      "path": "system.buffers/4.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "buildTransitive/net461/System.Buffers.targets",
+        "buildTransitive/net462/_._",
+        "lib/net462/System.Buffers.dll",
+        "lib/net462/System.Buffers.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "system.buffers.4.6.0.nupkg.sha512",
+        "system.buffers.nuspec"
+      ]
+    },
+    "System.Memory/4.5.5": {
+      "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
+      "type": "package",
+      "path": "system.memory/4.5.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.5.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Numerics.Vectors/4.5.0": {
+      "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
+      "type": "package",
+      "path": "system.numerics.vectors/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Numerics.Vectors.dll",
+        "lib/net46/System.Numerics.Vectors.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.Numerics.Vectors.dll",
+        "lib/netstandard1.0/System.Numerics.Vectors.xml",
+        "lib/netstandard2.0/System.Numerics.Vectors.dll",
+        "lib/netstandard2.0/System.Numerics.Vectors.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/System.Numerics.Vectors.dll",
+        "ref/net45/System.Numerics.Vectors.xml",
+        "ref/net46/System.Numerics.Vectors.dll",
+        "ref/net46/System.Numerics.Vectors.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/System.Numerics.Vectors.dll",
+        "ref/netstandard1.0/System.Numerics.Vectors.xml",
+        "ref/netstandard2.0/System.Numerics.Vectors.dll",
+        "ref/netstandard2.0/System.Numerics.Vectors.xml",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.numerics.vectors.4.5.0.nupkg.sha512",
+        "system.numerics.vectors.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "type": "package",
+      "path": "system.threading.tasks.extensions/4.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Threading.Tasks.Extensions.dll",
+        "lib/net461/System.Threading.Tasks.Extensions.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "ZstdSharp.Port/0.8.4": {
+      "sha512": "eieSXq3kakCUXbgdxkKaRqWS6hF0KBJcqok9LlDCs60GOyrynLvPOcQ0pRw7shdPF7lh/VepJ9cP9n9HHc759g==",
+      "type": "package",
+      "path": "zstdsharp.port/0.8.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/ZstdSharp.dll",
+        "lib/net5.0/ZstdSharp.dll",
+        "lib/net6.0/ZstdSharp.dll",
+        "lib/net7.0/ZstdSharp.dll",
+        "lib/net8.0/ZstdSharp.dll",
+        "lib/net9.0/ZstdSharp.dll",
+        "lib/netcoreapp3.1/ZstdSharp.dll",
+        "lib/netstandard2.0/ZstdSharp.dll",
+        "lib/netstandard2.1/ZstdSharp.dll",
+        "zstdsharp.port.0.8.4.nupkg.sha512",
+        "zstdsharp.port.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "ConEmu.Control.WinForms >= 1.21.9.5",
+      "ConEmu.Core >= 23.7.24",
+      "ConEmu.Liberated >= 150111.0.0",
+      "Microsoft.CSharp >= 4.0.1",
+      "SevenZipExtractor >= 1.0.19",
+      "SharpCompress >= 0.39.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Danieliscool\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Danieliscool\\source\\repos\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher.csproj",
+      "projectName": "E3 Definitive Mod Demo Launcher",
+      "projectPath": "C:\\Users\\Danieliscool\\source\\repos\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher.csproj",
+      "packagesPath": "C:\\Users\\Danieliscool\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Danieliscool\\source\\repos\\E3 Definitive Mod Demo Launcher\\E3 Definitive Mod Demo Launcher\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Danieliscool\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "projectReferences": {}
+        }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "dependencies": {
+          "ConEmu.Control.WinForms": {
+            "target": "Package",
+            "version": "[1.21.9.5, )"
+          },
+          "ConEmu.Core": {
+            "target": "Package",
+            "version": "[23.7.24, )"
+          },
+          "ConEmu.Liberated": {
+            "target": "Package",
+            "version": "[150111.0.0, )"
+          },
+          "Microsoft.CSharp": {
+            "target": "Package",
+            "version": "[4.0.1, )"
+          },
+          "SevenZipExtractor": {
+            "target": "Package",
+            "version": "[1.0.19, )"
+          },
+          "SharpCompress": {
+            "target": "Package",
+            "version": "[0.39.0, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-arm64": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

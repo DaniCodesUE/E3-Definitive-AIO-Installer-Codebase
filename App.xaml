@@ -1,0 +1,9 @@
+﻿<Application x:Class="E3_Definitive_Mod_Demo_Launcher.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:E3_Definitive_Mod_Demo_Launcher"
+             StartupUri="DyingLight2Downgrader.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
