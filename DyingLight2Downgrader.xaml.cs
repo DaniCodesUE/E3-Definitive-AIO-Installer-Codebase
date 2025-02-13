@@ -141,11 +141,6 @@ namespace E3_Definitive_Mod_Demo_Launcher
                         await RunSteamCMDWithAppCode(username, password, installDir); 
                     }
                 }
-                else
-                {
-                    string loginCommand = $"steamcmd +login {username} {password}";
-                    await RunSteamCMD(loginCommand, false); 
-                }
 
                 int totalDepots = depotsAndManifests.Length;
                 int completedDepots = 0;
@@ -246,15 +241,12 @@ namespace E3_Definitive_Mod_Demo_Launcher
                 }
                 AppendLog($"Downloading depot {depotId}...");
                 bool success = await Task.Run(() =>
-                    RunSteamCmdForDepot(steamCmdPath, username, password, appId, depotId, manifestId, installDir));
+                    RunSteamCmdForDepotSession(steamCmdPath, appId, depotId, manifestId, installDir));
 
                 AppendLog($"Depot {depotId} download {(success ? "successful" : "failed, skipping...")}");
 
                 completedDepots++;
                 UpdateProgressBar(completedDepots, totalDepots);
-
-                AppendLog("Waiting 1 minute before requesting a new Steam App Code...");
-                await Task.Delay(60000);
             }
 
             AppendLog("All depots processed. Starting cleanup and demo setup...");
@@ -279,37 +271,6 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
             return steamAppCode;
         }
-
-        private void ReadStreamForCode(StreamReader reader, Process process)
-        {
-            var regex = new Regex(@"Steam Guard code:", RegexOptions.IgnoreCase);
-
-            string line;
-            while ((line = reader.ReadLine()) != null)
-            {
-                AppendLog(line);
-
-                if (regex.IsMatch(line))
-                {
-                    Dispatcher.Invoke(() =>
-                    {
-                        var steamGuardWindow = new SteamGuardWindow();
-                        if (steamGuardWindow.ShowDialog() == true)
-                        {
-                            string steamGuardCode = steamGuardWindow.SteamGuardCode;
-                            process.StandardInput.WriteLine(steamGuardCode);
-                            AppendLog($"Submitted Steam Guard code: {steamGuardCode}");
-                        }
-                        else
-                        {
-                            AppendLog("Steam Guard input canceled.");
-                            process.Kill();
-                        }
-                    });
-                }
-            }
-        }
-
 
         private void DeleteDepotFolders(string depotPath)
         {
@@ -680,6 +641,47 @@ namespace E3_Definitive_Mod_Demo_Launcher
                     };
 
                     StringBuilder outputBuilder = new StringBuilder();
+                    process.OutputDataReceived += (sender, args) => AppendLog(args.Data);
+                    process.ErrorDataReceived += (sender, args) => AppendLog(args.Data);
+
+                    process.Start();
+                    process.BeginOutputReadLine();
+                    process.BeginErrorReadLine();
+
+                    process.WaitForExit();
+
+                    AppendLog($"SteamCMD for depot {depotId} exited with code {process.ExitCode}");
+
+                    return process.ExitCode == 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"Error running SteamCMD for depot {depotId}: {ex.Message}");
+                return false;
+            }
+        }
+
+        private bool RunSteamCmdForDepotSession(string steamCmdPath, string appId, string depotId, string manifestId, string installDir)
+        {
+            try
+            {
+                string command = $"+force_install_dir \"{installDir}\" +download_depot {appId} {depotId} {manifestId} -noupdate +quit";
+
+                AppendLog($"Starting SteamCMD for depot {depotId} using existing session and closing after...");
+
+                using (Process process = new Process())
+                {
+                    process.StartInfo = new ProcessStartInfo()
+                    {
+                        FileName = steamCmdPath,
+                        Arguments = command,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    };
+
                     process.OutputDataReceived += (sender, args) => AppendLog(args.Data);
                     process.ErrorDataReceived += (sender, args) => AppendLog(args.Data);
 
