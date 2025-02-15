@@ -69,7 +69,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
             {
                 return selectedItem.Content.ToString();
             }
-            return "Steam Guard (Email Code)"; // Default fallback
+            return "Steam Email Code"; // Default fallback
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -86,7 +86,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
                 return;
             }
 
-            bool isSteamGuardEnabled = SteamGuardCheckbox.IsChecked ?? false;
+            bool isSteamGuardEnabled = SteamGuardCheckbox.IsChecked ?? true;
             string authMethod = GetSelectedAuthMethod();
 
             AppendLog($"SteamGuardCheckbox.IsChecked: {isSteamGuardEnabled}, Selected Auth Method: {authMethod}");
@@ -129,17 +129,10 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
                 AppendLog("Starting SteamCMD login...");
 
-                if (isSteamGuardEnabled)
+                if (authMethod == "Steam Email Code")
                 {
-                    if (authMethod == "Steam Guard (Email Code)")
-                    {
-                        string loginCommand = $"steamcmd +login {username} {password}";
-                        await RunSteamCMD(loginCommand, true);
-                    }
-                    else if (authMethod == "Steam App Code")
-                    {
-                        await RunSteamCMDWithAppCode(username, password, installDir); 
-                    }
+                    string loginCommand = $"steamcmd +login {username} {password}";
+                    await RunSteamCMD(loginCommand, true);
                 }
 
                 int totalDepots = depotsAndManifests.Length;
@@ -147,8 +140,12 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
                 foreach (var (depotId, manifestId) in depotsAndManifests)
                 {
-                    bool success = await Task.Run(() =>
-                        RunSteamCmdForDepot(steamCmdPath, username, password, appId, depotId, manifestId, installDir));
+                    bool success = false;
+
+              
+       
+                   success = await Task.Run(() =>
+                            RunSteamCmdForDepot(steamCmdPath, username, password, appId, depotId, manifestId, installDir, isSteamGuardEnabled, authMethod));
 
                     if (success)
                     {
@@ -185,76 +182,8 @@ namespace E3_Definitive_Mod_Demo_Launcher
             }
         }
 
-        private async Task RunSteamCMDWithAppCode(string username, string password, string installDir)
-        {
-            string steamCmdPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "steamcmd", "steamcmd.exe");
-            if (!File.Exists(steamCmdPath))
-            {
-                AppendLog("SteamCMD executable not found.");
-                throw new FileNotFoundException("SteamCMD executable not found.");
-            }
 
-            string appId = "534380";
-            (string depotId, string manifestId)[] depotsAndManifests =
-            {
-        ("534381", "8397059556255747146"),
-        ("534382", "2610088083322243488"),
-        ("534383", "6553645018477200440"),
-        ("534384", "3809152703080297962"),
-        ("534385", "8328607143729447236")
-    };
-
-            int totalDepots = depotsAndManifests.Length;
-            int completedDepots = 0;
-
-            foreach (var (depotId, manifestId) in depotsAndManifests)
-            {
-                AppendLog($"Logging into Steam for depot {depotId}...");
-
-                string steamAppCode = PromptForSteamAppCode();
-                if (string.IsNullOrEmpty(steamAppCode))
-                {
-                    AppendLog("Steam App Code input canceled. Aborting process.");
-                    return;
-                }
-
-                using (var process = new Process())
-                {
-                    process.StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = steamCmdPath,
-                        RedirectStandardInput = true,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    };
-
-                    process.Start();
-
-                    process.StandardInput.WriteLine($"+login {username} {password}");
-                    await Task.Delay(2000);
-                    process.StandardInput.WriteLine(steamAppCode);
-                    AppendLog($"Submitted Steam App Code: {steamAppCode}");
-
-                    await Task.Delay(5000);
-                }
-                AppendLog($"Downloading depot {depotId}...");
-                bool success = await Task.Run(() =>
-                    RunSteamCmdForDepotSession(steamCmdPath, appId, depotId, manifestId, installDir));
-
-                AppendLog($"Depot {depotId} download {(success ? "successful" : "failed, skipping...")}");
-
-                completedDepots++;
-                UpdateProgressBar(completedDepots, totalDepots);
-            }
-
-            AppendLog("All depots processed. Starting cleanup and demo setup...");
-            DeleteDepotFolders(installDir);
-            await DownloadAndExtractAudioFix(installDir);
-            await DownloadAndExtractDemo(installDir);
-            AppendLog("Demo setup complete.");
-        }
+        
 
         private string PromptForSteamAppCode()
         {
@@ -620,7 +549,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
         }
 
 
-        private bool RunSteamCmdForDepot(string steamCmdPath, string username, string password, string appId, string depotId, string manifestId, string installDir)
+        private async Task<bool> RunSteamCmdForDepot(string steamCmdPath, string username, string password, string appId, string depotId, string manifestId, string installDir, bool isSteamGuardEnabled, string authMethod)
         {
             try
             {
@@ -634,6 +563,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
                     {
                         FileName = steamCmdPath,
                         Arguments = command,
+                        RedirectStandardInput = true,
                         RedirectStandardOutput = true,
                         RedirectStandardError = true,
                         UseShellExecute = false,
@@ -648,10 +578,35 @@ namespace E3_Definitive_Mod_Demo_Launcher
                     process.BeginOutputReadLine();
                     process.BeginErrorReadLine();
 
+                    if (isSteamGuardEnabled == true && authMethod == "Steam App Code")
+                    { 
+                        await Task.Delay(1000);
+
+                        string steamGuardCode = null;
+                        Dispatcher.Invoke(() =>
+                        {
+                            var steamGuardWindow = new SteamGuardWindow();
+                            if (steamGuardWindow.ShowDialog() == true)
+                            {
+                                steamGuardCode = steamGuardWindow.SteamGuardCode;
+                            }
+                        });
+
+                        if (!string.IsNullOrEmpty(steamGuardCode))
+                        {
+                            await Task.Delay(500);
+                            process.StandardInput.WriteLine(steamGuardCode);
+                            AppendLog("Steam Guard code submitted.");
+                            await Task.Delay(500);
+                        }
+                        else
+                        {
+                            AppendLog("Steam Guard code was empty. Depot download may fail or be incomplete.");
+                        }
+                    }
+
                     process.WaitForExit();
-
                     AppendLog($"SteamCMD for depot {depotId} exited with code {process.ExitCode}");
-
                     return process.ExitCode == 0;
                 }
             }
@@ -661,48 +616,6 @@ namespace E3_Definitive_Mod_Demo_Launcher
                 return false;
             }
         }
-
-        private bool RunSteamCmdForDepotSession(string steamCmdPath, string appId, string depotId, string manifestId, string installDir)
-        {
-            try
-            {
-                string command = $"+force_install_dir \"{installDir}\" +download_depot {appId} {depotId} {manifestId} -noupdate +quit";
-
-                AppendLog($"Starting SteamCMD for depot {depotId} using existing session and closing after...");
-
-                using (Process process = new Process())
-                {
-                    process.StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = steamCmdPath,
-                        Arguments = command,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    };
-
-                    process.OutputDataReceived += (sender, args) => AppendLog(args.Data);
-                    process.ErrorDataReceived += (sender, args) => AppendLog(args.Data);
-
-                    process.Start();
-                    process.BeginOutputReadLine();
-                    process.BeginErrorReadLine();
-
-                    process.WaitForExit();
-
-                    AppendLog($"SteamCMD for depot {depotId} exited with code {process.ExitCode}");
-
-                    return process.ExitCode == 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                AppendLog($"Error running SteamCMD for depot {depotId}: {ex.Message}");
-                return false;
-            }
-        }
-
 
         private async Task DownloadAndExtractSteamCMD()
         {
@@ -805,6 +718,11 @@ namespace E3_Definitive_Mod_Demo_Launcher
         }
 
         private void ComboBox_AuthType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void InstallLink_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
