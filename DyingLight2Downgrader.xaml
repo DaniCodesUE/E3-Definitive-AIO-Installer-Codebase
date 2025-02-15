@@ -19,14 +19,14 @@
             <RowDefinition Height="0*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="1.12.1 AIO Installer coded by dani" HorizontalAlignment="Left" Margin="161,45,0,0" VerticalAlignment="Top" Width="209" FontFamily="DIN Pro Medium" Grid.Row="1" Height="40" RenderTransformOrigin="0.378,0.876" Foreground="White"/>
-        <TextBox x:Name="UserBox" HorizontalAlignment="Left" Margin="14,96,0,0" TextWrapping="Wrap" Text="Enter Steam Username" VerticalAlignment="Top" Width="354" FontFamily="DIN Pro Regular" GotFocus="TextBox_GotFocus" Grid.Row="1" Height="17" BorderBrush="{x:Null}"/>
+        <Label Content="1.12.1 AIO Installer coded by dani" HorizontalAlignment="Left" Margin="156,45,0,0" VerticalAlignment="Top" Width="209" FontFamily="DIN Pro Medium" Grid.Row="1" Height="40" RenderTransformOrigin="0.378,0.876" Foreground="White"/>
+        <TextBox x:Name="UserBox" HorizontalAlignment="Left" Margin="14,96,0,0" TextWrapping="Wrap" Text="Enter Steam Username" VerticalAlignment="Top" Width="356" FontFamily="DIN Pro Regular" GotFocus="TextBox_GotFocus" Grid.Row="1" Height="17" BorderBrush="{x:Null}"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="9,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,0.156" FontFamily="DIN Pro Medium" Height="25" Grid.Row="1" Width="66" Foreground="White"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="9,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,0.156" FontFamily="DIN Pro Medium" Grid.Row="1" Height="25" Width="62" Foreground="White"/>
         <Button Content="Start Installation" HorizontalAlignment="Left" Margin="254,203,0,0" VerticalAlignment="Top" Height="38" Width="117" FontFamily="DIN Pro Bold" Background="Red" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Grid.Row="1"/>
-        <Button x:Name="FindDirectory" Content="Open File Location" HorizontalAlignment="Left" Margin="136,203,0,0" VerticalAlignment="Top" Height="38" Width="118" FontFamily="DIN Pro Bold" Background="Red" Foreground="White" BorderBrush="{x:Null}" Click="FindDirectory_Click" Grid.Row="1" />
-        <TextBox x:Name="InstallLink" HorizontalAlignment="Left" Margin="14,169,0,0" TextWrapping="Wrap" Text="File Location Here" VerticalAlignment="Top" Width="355" FontFamily="DIN Pro Regular" GotFocus="TextBox_GotFocus" Grid.Row="1" Height="16" BorderBrush="{x:Null}"/>
-        <Label Content="File Location" HorizontalAlignment="Left" Margin="9,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,0.156" FontFamily="DIN Pro Medium" Grid.Row="1" Height="25" Width="78" Foreground="White"/>
+        <Button x:Name="FindDirectory" Content="Set Download &#xD;&#xA;     Location" HorizontalAlignment="Left" Margin="136,203,0,0" VerticalAlignment="Top" Height="38" Width="118" FontFamily="DIN Pro Bold" Background="Red" Foreground="White" BorderBrush="{x:Null}" Click="FindDirectory_Click" Grid.Row="1" />
+        <TextBox x:Name="InstallLink" HorizontalAlignment="Left" Margin="14,169,0,0" TextWrapping="Wrap" Text="Download Location Here" VerticalAlignment="Top" Width="357" FontFamily="DIN Pro Regular" GotFocus="TextBox_GotFocus" Grid.Row="1" Height="16" BorderBrush="{x:Null}" TextChanged="InstallLink_TextChanged"/>
+        <Label Content="Download Location" HorizontalAlignment="Left" Margin="9,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.211,0.156" FontFamily="DIN Pro Medium" Grid.Row="1" Height="25" Width="198" Foreground="White"/>
         <TextBox x:Name="Log" HorizontalAlignment="Left" Margin="393,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="475" FontFamily="DIN Pro Regular" Grid.Row="1" Height="238" IsEnabled="True" IsReadOnly="True" Foreground="White" BorderBrush="{x:Null}" Opacity="4" Grid.ColumnSpan="2">
             <TextBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" Opacity="0.4" StartPoint="0.5,0">
@@ -36,7 +36,7 @@
             </TextBox.Background>
         </TextBox>
         <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="15" Margin="15,252,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="356" BorderBrush="{x:Null}"/>
-        <Image Margin="15,5,322,232" Grid.RowSpan="2" Source="/7393e75e6f946d397967efae9b3716a2.png" Stretch="Fill"/>
+        <Image Margin="15,5,322,232" Grid.RowSpan="2" Source="/Logo.png" Stretch="Fill"/>
         <Label Content="E3 Definitive AIO Installer" HorizontalAlignment="Left" Margin="345,-25,0,0" VerticalAlignment="Top" Width="156" Height="30" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="DIN Pro Bold" Grid.RowSpan="2">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -61,18 +61,19 @@
         </Button>
         <Button x:Name="Minimize" Content="Button" HorizontalAlignment="Left" Margin="312,-21,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="15" Click="Minimize_Click" Grid.Column="1"/>
         <Button x:Name="CloseButt" Content="Button" HorizontalAlignment="Left" Margin="347,-24,0,0" VerticalAlignment="Top" Width="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="CloseButt_Click" Grid.Column="1"/>
-        <Button Content="Get Launcher &#xD;&#xA;    Location" HorizontalAlignment="Left" Margin="16,203,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontFamily="DIN Pro Bold" Height="38" Width="120" Click="Button_Click_1"/>
+        <Button Content=" Set to Launcher &#xA;       Location" HorizontalAlignment="Left" Margin="16,203,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontFamily="DIN Pro Bold" Height="38" Width="120" Click="Button_Click_1"/>
         <Button Content="debug demo download" HorizontalAlignment="Left" Margin="5,311,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="33" Width="150" Click="Button_Click_2"/>
-        <PasswordBox x:Name="PassBox" HorizontalAlignment="Left" Margin="14,130,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="354" BorderBrush="{x:Null}" Height="17" Password=""/>
+        <PasswordBox x:Name="PassBox" HorizontalAlignment="Left" Margin="14,130,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="356" BorderBrush="{x:Null}" Height="17" Password=""/>
         <Label x:Name="truefalse" Content="Label" HorizontalAlignment="Left" Margin="312,-73,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF00FF3E"/>
         <WindowsFormsHost HorizontalAlignment="Left" Height="16" Margin="193,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="39"/>
-        <CheckBox x:Name="SteamGuardCheckbox" HorizontalAlignment="Left" Margin="195,186,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Foreground="White" Checked="CheckBox_Checked">
+        <CheckBox x:Name="SteamGuardCheckbox" HorizontalAlignment="Left" Margin="214,186,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Foreground="White" Checked="CheckBox_Checked">
             <ComboBox x:Name="ComboBox_AuthType" SelectionChanged="ComboBox_AuthType_SelectionChanged" Height="18" FontFamily="DIN Pro Medium" FontSize="9" Width="136">
-                <ComboBoxItem Content="Steam Guard (Email Code)" IsSelected="True"/>
+                <ComboBoxItem Content="Steam Email Code" IsSelected="True"/>
                 <ComboBoxItem Content="Steam App Code"/>
             </ComboBox>
 
         </CheckBox>
+        <Label Content="Steam Guard:" HorizontalAlignment="Left" Margin="146,182,0,0" VerticalAlignment="Top" Width="70" FontFamily="DIN Pro Medium" Grid.Row="1" Height="22" RenderTransformOrigin="0.378,0.876" Foreground="White" FontSize="10"/>
 
     </Grid>
 </Window>
