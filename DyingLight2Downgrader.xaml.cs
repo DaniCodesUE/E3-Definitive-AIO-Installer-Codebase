@@ -127,6 +127,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
                     return;
                 }
 
+                InitializeSteamCmd(steamCmdPath);
                 AppendLog("Starting SteamCMD login...");
 
                 if (authMethod == "Steam Email Code")
@@ -220,6 +221,45 @@ namespace E3_Definitive_Mod_Demo_Launcher
             }
 
             AppendLog($"Deleted {deletedCount}/{deletedFolders.Count} depot folders.");
+        }
+
+        private void InitializeSteamCmd(string steamCmdPath)
+        {
+            try
+            {
+                AppendLog("Initializing SteamCMD to allow updates...");
+
+                using (Process process = new Process())
+                {
+                    process.StartInfo = new ProcessStartInfo()
+                    {
+                        FileName = steamCmdPath,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    };
+
+                    process.OutputDataReceived += (sender, args) => AppendLog(args.Data);
+                    process.ErrorDataReceived += (sender, args) => AppendLog(args.Data);
+
+                    process.Start();
+                    process.BeginOutputReadLine();
+                    process.BeginErrorReadLine();
+
+                    Task.Delay(15000).Wait();
+
+                    if (!process.HasExited)
+                    {
+                        process.Kill();
+                        AppendLog("SteamCMD initialization completed and process terminated.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"Error during SteamCMD initialization: {ex.Message}");
+            }
         }
 
         private async Task DownloadAndExtractAudioFix(string installDir)
