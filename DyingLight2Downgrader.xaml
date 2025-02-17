@@ -61,7 +61,7 @@
         </Button>
         <Button x:Name="Minimize" Content="Button" HorizontalAlignment="Left" Margin="312,-21,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}" Width="25" Height="15" Click="Minimize_Click" Grid.Column="1"/>
         <Button x:Name="CloseButt" Content="Button" HorizontalAlignment="Left" Margin="347,-24,0,0" VerticalAlignment="Top" Width="27" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="CloseButt_Click" Grid.Column="1"/>
-        <Button Content=" Set to Launcher &#xA;       Location" HorizontalAlignment="Left" Margin="16,203,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontFamily="DIN Pro Bold" Height="38" Width="120" Click="Button_Click_1"/>
+        <Button Content="Update Installed&#xD;&#xA;         Game" HorizontalAlignment="Left" Margin="16,203,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="Red" BorderBrush="{x:Null}" Foreground="White" FontFamily="DIN Pro Bold" Height="38" Width="120" Click="Button_Click_1"/>
         <Button Content="debug demo download" HorizontalAlignment="Left" Margin="5,311,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Height="33" Width="150" Click="Button_Click_2"/>
         <PasswordBox x:Name="PassBox" HorizontalAlignment="Left" Margin="14,130,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="356" BorderBrush="{x:Null}" Height="17" Password=""/>
         <Label x:Name="truefalse" Content="Label" HorizontalAlignment="Left" Margin="312,-73,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF00FF3E"/>

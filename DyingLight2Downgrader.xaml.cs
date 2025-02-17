@@ -29,6 +29,8 @@ using System.Runtime.InteropServices;
 using System.Windows.Media;
 using Microsoft.Win32.SafeHandles;
 using System.Text.RegularExpressions;
+using System.Globalization;
+using Application = System.Windows.Application;
 
 namespace E3_Definitive_Mod_Demo_Launcher
 {
@@ -48,6 +50,8 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
         public DyingLight2Downgrader()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             System.Windows.Controls.ProgressBar progressBar = this.ProgressBar;
             InitializeComponent();
         }
@@ -109,7 +113,6 @@ namespace E3_Definitive_Mod_Demo_Launcher
                 if (depotsReady)
                 {
                     DeleteDepotFolders(steamCmdContentPath);
-                    await DownloadAndExtractAudioFix(installDir);
                     await DownloadAndExtractDemo(installDir);
                     AppendLog("Demo setup complete.");
                     return;
@@ -127,7 +130,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
                     return;
                 }
 
-                InitializeSteamCmd(steamCmdPath);
+                await InitializeSteamCmdAsync(steamCmdPath);
                 AppendLog("Starting SteamCMD login...");
 
                 if (authMethod == "Steam Email Code")
@@ -173,7 +176,6 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
                 AppendLog("All depots processed. Starting cleanup and demo setup...");
                 DeleteDepotFolders(steamCmdContentPath);
-                await DownloadAndExtractAudioFix(installDir);
                 await DownloadAndExtractDemo(installDir);
                 AppendLog("Demo setup complete.");
             }
@@ -223,102 +225,48 @@ namespace E3_Definitive_Mod_Demo_Launcher
             AppendLog($"Deleted {deletedCount}/{deletedFolders.Count} depot folders.");
         }
 
-        private void InitializeSteamCmd(string steamCmdPath)
+        private async Task InitializeSteamCmdAsync(string steamCmdPath)
         {
-            try
+            AppendLog("Initializing SteamCMD for auto-update...");
+
+            using (Process process = new Process())
             {
-                AppendLog("Initializing SteamCMD to allow updates...");
-
-                using (Process process = new Process())
+                process.StartInfo = new ProcessStartInfo
                 {
-                    process.StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = steamCmdPath,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    };
+                    FileName = steamCmdPath,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    RedirectStandardInput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
 
-                    process.OutputDataReceived += (sender, args) => AppendLog(args.Data);
-                    process.ErrorDataReceived += (sender, args) => AppendLog(args.Data);
+                process.OutputDataReceived += (sender, args) => AppendLog(args.Data);
+                process.ErrorDataReceived += (sender, args) => AppendLog(args.Data);
 
-                    process.Start();
-                    process.BeginOutputReadLine();
-                    process.BeginErrorReadLine();
+                process.Start();
+                process.BeginOutputReadLine();
+                process.BeginErrorReadLine();
+                await Task.Delay(10000);
 
-                    Task.Delay(15000).Wait();
+                if (!process.HasExited)
+                {
+                    process.StandardInput.WriteLine("quit");
+                    AppendLog("Sent +quit command to SteamCMD.");
+                    var exitTask = Task.Run(() => process.WaitForExit());
+                    var timeoutTask = Task.Delay(5000);
+
+                    await Task.WhenAny(exitTask, timeoutTask);
 
                     if (!process.HasExited)
                     {
                         process.Kill();
-                        AppendLog("SteamCMD initialization completed and process terminated.");
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                AppendLog($"Error during SteamCMD initialization: {ex.Message}");
-            }
-        }
-
-        private async Task DownloadAndExtractAudioFix(string installDir)
-        {
-            string temp7zPath = Path.Combine(installDir, "audiofix.7z");
-            string tempExtractPath = Path.Combine(installDir, "audiofix_temp");
-            string audioTargetPath = Path.Combine(installDir, "ph", "work", "data", "audio");
-
-            try
-            {
-                AppendLog("Downloading audio fix .7z...");
-                using (HttpClient client = new HttpClient())
-                {
-                    using (var response = await client.GetAsync("https://www.dropbox.com/scl/fi/woyx6zsgd2xqdcclvvcxo/AudioFixDl2_1.12.1.7z?rlkey=ht3mqnxxcsq9raqdgkk46xru5&st=njal8sp2&dl=1", HttpCompletionOption.ResponseHeadersRead))
+                    else
                     {
-                        response.EnsureSuccessStatusCode();
-                        using (var fs = new FileStream(temp7zPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                        {
-                            await response.Content.CopyToAsync(fs);
-                        }
+                        AppendLog("SteamCMD exited gracefully.");
                     }
                 }
-                AppendLog($"Audio fix .7z downloaded to {temp7zPath}.");
-
-                AppendLog("Extracting audio fix .7z...");
-                if (!Directory.Exists(tempExtractPath))
-                    Directory.CreateDirectory(tempExtractPath);
-
-                using (var archive = SharpCompress.Archives.SevenZip.SevenZipArchive.Open(temp7zPath))
-                {
-                    foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
-                    {
-                        string destinationPath = Path.Combine(tempExtractPath, entry.Key);
-                        Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
-                        entry.WriteToFile(destinationPath);
-                    }
-                }
-
-                AppendLog("Audio fix .7z extracted. Processing files...");
-
-                var innerDirectory = Directory.GetDirectories(tempExtractPath).FirstOrDefault();
-                if (innerDirectory == null || !Directory.Exists(innerDirectory))
-                {
-                    AppendLog("Error: Could not find the expected folder inside the extracted archive.");
-                    return;
-                }
-
-
-                MergeDirectories(innerDirectory, audioTargetPath);
-                AppendLog("Audio fix files successfully merged into the audio folder.");
-            }
-            catch (Exception ex)
-            {
-                AppendLog($"Error during audio fix processing: {ex.Message}");
-            }
-            finally
-            {
-                if (File.Exists(temp7zPath)) File.Delete(temp7zPath);
-                if (Directory.Exists(tempExtractPath)) Directory.Delete(tempExtractPath, true);
             }
         }
 
@@ -709,7 +657,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
         private void CloseButt_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Application.Current.Shutdown();
         }
 
         private void Minimize_Click(object sender, RoutedEventArgs e)
@@ -727,9 +675,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string exeLocation = AppDomain.CurrentDomain.BaseDirectory;
-            InstallLink.Text = exeLocation;
-            AppendLog($"Set installation directory to EXE location: {exeLocation}");
+            MessageBox.Show("Coming in a future update", "Update", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
