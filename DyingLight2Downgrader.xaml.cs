@@ -31,6 +31,7 @@ using Microsoft.Win32.SafeHandles;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using Application = System.Windows.Application;
+using System.Windows.Threading;
 
 namespace E3_Definitive_Mod_Demo_Launcher
 {
@@ -44,9 +45,12 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
         private const int HANDLE_FLAG_INHERIT = 1;
 
-        private const string DemoRarUrl = "https://www.dropbox.com/scl/fi/akzb0off1czgamcd8736e/DEMO.rar?rlkey=ff853rwz8qlg1r15nk6aa4zds&st=1tam9xg1&dl=1";
+        private const string DemoRarUrl = "https://www.dropbox.com/scl/fi/akzb0off1czgamcd8736e/DEMO.rar?rlkey=ff853rwz8qlg1r15nk6aa4zds&st=a4azct0y&dl=1";
         private const string AudioFixUrl = "https://www.dropbox.com/scl/fi/woyx6zsgd2xqdcclvvcxo/AudioFixDl2_1.12.1.7z?rlkey=ht3mqnxxcsq9raqdgkk46xru5&st=njal8sp2&dl=1";
         private const string SteamCmdUrl = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
+        private DispatcherTimer logMonitorTimer;
+        private bool installationStartedLogged = false; // Prevents duplicate logs
+
 
         public DyingLight2Downgrader()
         {
@@ -54,7 +58,36 @@ namespace E3_Definitive_Mod_Demo_Launcher
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             System.Windows.Controls.ProgressBar progressBar = this.ProgressBar;
             InitializeComponent();
+            StartLogMonitor();
         }
+
+        private HashSet<string> processedLogs = new HashSet<string>(); 
+
+        private void StartLogMonitor()
+        {
+            logMonitorTimer = new DispatcherTimer();
+            logMonitorTimer.Interval = TimeSpan.FromMilliseconds(100);
+            logMonitorTimer.Tick += CheckLogForTrigger;
+            logMonitorTimer.Start();
+        }
+
+        private void CheckLogForTrigger(object sender, EventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                string[] logLines = Log.Text.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+
+                foreach (string line in logLines)
+                {
+                    if (line.Contains("Waiting for user info") && !processedLogs.Contains(line))
+                    {
+                        AppendLog("Depot Installation Started successfully.");
+                        processedLogs.Add(line); 
+                    }
+                }
+            });
+        }
+
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -73,7 +106,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
             {
                 return selectedItem.Content.ToString();
             }
-            return "Steam Email Code"; // Default fallback
+            return "Steam Email Code"; 
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
@@ -272,16 +305,20 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
         private void MergeDirectories(string sourceDir, string targetDir)
         {
-            foreach (var sourceFile in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
+            string[] sourceFiles = Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories);
+
+            foreach (var sourceFile in sourceFiles)
             {
                 string relativePath = GetRelativePath(sourceDir, sourceFile);
                 string targetFile = Path.Combine(targetDir, relativePath);
 
                 Directory.CreateDirectory(Path.GetDirectoryName(targetFile));
                 File.Copy(sourceFile, targetFile, true);
-                AppendLog($"Merged {Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories).Length} files into {targetDir}.");
             }
+
+            AppendLog($"Merged {sourceFiles.Length} files into {targetDir}.");
         }
+
 
         private string GetRelativePath(string basePath, string fullPath)
         {
@@ -351,7 +388,6 @@ namespace E3_Definitive_Mod_Demo_Launcher
         private async Task DownloadAndExtractDemo(string installDir)
         {
             string tempRarPath = Path.Combine(installDir, "demo.rar");
-            string tempExtractPath = Path.Combine(installDir, "demo_extracted");
             string targetPhPath = Path.Combine(installDir, "ph");
 
             try
@@ -370,7 +406,8 @@ namespace E3_Definitive_Mod_Demo_Launcher
                 }
                 AppendLog($"demo.rar downloaded to {tempRarPath}.");
 
-                //hopefully this does the rename function and not attempt to move a fake .dll, its been a while since i coded a rename in a program ngl
+                ExtractWithWinRAR(tempRarPath, installDir);
+
                 string dllPath = Path.Combine(installDir, "ph", "work", "bin", "x64", "nvngx_dlssg.dll");
                 string renamedDllPath = Path.Combine(installDir, "ph", "work", "bin", "x64", "nvngx_dlssg.dll1");
                 if (File.Exists(dllPath))
@@ -383,30 +420,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
                     AppendLog("nvngx_dlssg.dll not found. Skipping rename.");
                 }
 
-                AppendLog("Extracting demo.rar...");
-                using (var archive = RarArchive.Open(tempRarPath))
-                {
-                    foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
-                    {
-                        string destinationPath = Path.Combine(tempExtractPath, entry.Key);
-                        Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
-                        entry.WriteToFile(destinationPath, new ExtractionOptions { ExtractFullPath = true, Overwrite = true });
-                    }
-                }
-                AppendLog("demo.rar extracted successfully.");
-
-                string extractedPhPath = Path.Combine(tempExtractPath, "DEMO", "ph");
-                if (Directory.Exists(extractedPhPath))
-                {
-                    AppendLog("Merging extracted 'ph' folder with existing 'ph' folder...");
-                    MergeDirectories(extractedPhPath, targetPhPath);
-                    AppendLog("Merge completed successfully.");
-                }
-                else
-                {
-                    AppendLog("No 'ph' folder found in extracted files. Skipping merge.");
-                }
-
+                AppendLog("'ph' folder extracted successfully.");
                 ShowCompletionPopup();
             }
             catch (Exception ex)
@@ -416,9 +430,124 @@ namespace E3_Definitive_Mod_Demo_Launcher
             finally
             {
                 if (File.Exists(tempRarPath)) File.Delete(tempRarPath);
-                if (Directory.Exists(tempExtractPath)) Directory.Delete(tempExtractPath, true);
             }
         }
+
+
+        private async Task ResumeDownload(string url, string filePath)
+        {
+            long existingLength = 0;
+
+            if (File.Exists(filePath))
+                existingLength = new FileInfo(filePath).Length;
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Range = new System.Net.Http.Headers.RangeHeaderValue(existingLength, null);
+                using (var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead))
+                {
+                    response.EnsureSuccessStatusCode();
+
+                    using (var fs = new FileStream(filePath, FileMode.Append, FileAccess.Write, FileShare.None))
+                    using (var stream = await response.Content.ReadAsStreamAsync())
+                    {
+                        byte[] buffer = new byte[8192];
+                        int bytesRead;
+
+                        while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await fs.WriteAsync(buffer, 0, bytesRead);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ExtractDemoRar(string rarPath, string installDir)
+        {
+            try
+            {
+                AppendLog("Extracting 'ph' folder from demo.rar...");
+                using (var archive = RarArchive.Open(rarPath))
+                {
+                    int totalEntries = archive.Entries.Count();
+                    int processedEntries = 0;
+
+                    foreach (var entry in archive.Entries.Where(e => !e.IsDirectory && e.Key.StartsWith("DEMO/ph/")))
+                    {
+                        string relativePath = entry.Key.Substring(5);
+                        string destinationPath = Path.Combine(installDir, relativePath);
+
+                        Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
+                        entry.WriteToFile(destinationPath, new ExtractionOptions { ExtractFullPath = true, Overwrite = true });
+
+                        processedEntries++;
+                        AppendLog($"Extracting: {processedEntries}/{totalEntries}");
+                    }
+                }
+                AppendLog("Extraction complete!");
+                ShowCompletionPopup();
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"Extraction error: {ex.Message}");
+            }
+        }
+
+        private void ExtractWithWinRAR(string rarPath, string installDir)
+        {
+            try
+            {
+                AppendLog("Extracting using WinRAR...");
+
+                string winrarPath = @"C:\Program Files\WinRAR\WinRAR.exe"; 
+
+                if (!File.Exists(winrarPath))
+                {
+                    AppendLog("WinRAR not found! Asking user to locate it...");
+
+                    var openFileDialog = new Microsoft.Win32.OpenFileDialog
+                    {
+                        Title = "Select WinRAR.exe",
+                        Filter = "WinRAR Executable (WinRAR.exe)|WinRAR.exe",
+                        InitialDirectory = @"C:\Program Files"
+                    };
+
+                    bool? result = openFileDialog.ShowDialog(); 
+
+                    if (result == true)
+                    {
+                        winrarPath = openFileDialog.FileName;
+                        AppendLog($"User selected WinRAR path: {winrarPath}");
+                    }
+                    else
+                    {
+                        AppendLog("WinRAR selection was canceled. Extraction aborted.");
+                        return;
+                    }
+                }
+
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = winrarPath,
+                    Arguments = $"x -y \"{rarPath}\" \"{installDir}\\\"",
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+
+                using (Process process = Process.Start(psi))
+                {
+                    process.WaitForExit();
+                    AppendLog("Extraction complete!");
+                }
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"WinRAR extraction error: {ex.Message}");
+            }
+        }
+
 
         private void ShowCompletionPopup()
         {
@@ -437,9 +566,13 @@ namespace E3_Definitive_Mod_Demo_Launcher
         {
             if (!string.IsNullOrWhiteSpace(message))
             {
-                Dispatcher.Invoke(() => Log.AppendText($"{DateTime.Now}: {message}{Environment.NewLine}"));
+                Dispatcher.Invoke(() =>
+                {
+                    Log.AppendText($"{DateTime.Now}: {message}{Environment.NewLine}");
+                });
             }
         }
+
 
         private void OverwriteMatchingFiles(string sourceDir, string targetDir)
         {
@@ -568,7 +701,7 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
                     if (isSteamGuardEnabled == true && authMethod == "Steam App Code")
                     { 
-                        await Task.Delay(1000);
+                        await Task.Delay(10000);
 
                         string steamGuardCode = null;
                         Dispatcher.Invoke(() =>
@@ -582,10 +715,10 @@ namespace E3_Definitive_Mod_Demo_Launcher
 
                         if (!string.IsNullOrEmpty(steamGuardCode))
                         {
-                            await Task.Delay(500);
+                            await Task.Delay(2500);
                             process.StandardInput.WriteLine(steamGuardCode);
                             AppendLog("Steam Guard code submitted.");
-                            await Task.Delay(500);
+                            await Task.Delay(2500);
                         }
                         else
                         {
@@ -711,6 +844,20 @@ namespace E3_Definitive_Mod_Demo_Launcher
         private void InstallLink_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string installDir = InstallLink.Text;
+
+            if (string.IsNullOrWhiteSpace(installDir))
+            {
+                MessageBox.Show("Please specify the installation directory first.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            AppendLog("Starting debug demo download...");
+            DownloadAndExtractDemo(installDir);
         }
     }
 }
